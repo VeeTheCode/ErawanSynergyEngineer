@@ -72,3 +72,6 @@ function showPopup(message, type) {
     popup.classList.remove("show");
   }, 3500);
 }
+function toggleMenu() {
+  document.getElementById("mobileMenu").classList.toggle("show");
+}

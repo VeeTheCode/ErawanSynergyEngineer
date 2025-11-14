@@ -13,49 +13,70 @@ body {
 }
 
 /* Navbar */
+/* Navbar Desktop */
 .navbar {
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 15px 50px;
+  padding: 12px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(8px);
-  z-index: 100;
+  z-index: 1000;
 }
 
-.logo {
+/* Logo */
+.navbar .logo img {
+  width: 90px;
+}
+
+/* Middle Menu */
+.navbar nav {
+  flex: 1;
   display: flex;
-  align-items: center;
-  font-weight: 700;
-  font-size: 1.4em;
+  justify-content: center;
+  gap: 45px;
 }
 
-.logo img {
-  width: 100px;
-  margin-right: 50px;
+/* Right Icons */
+.social-icons {
+  display: flex;
+  gap: 15px;
 }
 
+.social-icons img {
+  width: 40px;
+  transition: 0.3s;
+}
+
+.social-icons img:hover {
+  transform: scale(1.1);
+}
+
+/* Desktop links */
 .navbar nav a {
   color: white;
-  margin: 0 20px;
+  font-size: 18px;
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s;
+  position: relative;
 }
 
-.navbar nav a:hover {
-  color: #00bcd4;
-}
-
-/* Active link */
 .navbar nav a.active {
   color: #00bcd4;
-  border-bottom: 2px solid #00bcd4;
-  padding-bottom: 4px;
 }
+
+.navbar nav a.active::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -3px;
+  left: 0;
+  background: #00bcd4;
+}
+
 
 .social-icons img {
   width: 35px;
@@ -415,38 +436,80 @@ footer {
 }
 
 
+/* --- Navbar ปกติ --- */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 15px 30px;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+}
+
+/* บรรทัดบน: โลโก้ + hamburger */
+.navbar-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Hamburger button */
+.menu-toggle {
+  display: none;
+  font-size: 35px;
+  cursor: pointer;
+  user-select: none;
+  color: white;
+}
+
+/* PC MENU */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 10px;
+}
+
+/* MOBILE */
 @media (max-width: 768px) {
 
+  /* Navbar หลักให้เป็น 2 แถว */
   .navbar {
+    padding: 10px 15px;
     flex-direction: column;
-    padding: 10px 10px;
-    text-align: center;
+    align-items: stretch;
+  }
+
+  /* แถวบน: โลโก้ซ้าย + ไอคอนขวา */
+  .navbar-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  /* แถวล่าง: เมนู */
+  nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 10px;
   }
 
   .logo img {
-    width: 70px; /* ลดขนาดโลโก้ให้พอดีมือถือ */
+    width: 60px; /* โลโก้เล็กลงให้พอดีมือถือ */
     margin: 0;
   }
 
-  nav {
-    margin-top: 10px;
-    display: flex;
-    flex-wrap: wrap;   /* ทำให้ขึ้นหลายบรรทัดได้ */
-    justify-content: center;
-    gap: 10px;
-  }
-
-  nav a {
-    font-size: 0.9em;
-    margin: 0 10px;
-  }
-
   .social-icons {
-    margin-top: 10px;
-    gap: 15px;
+    display: flex;
+    gap: 12px;
   }
 
   .social-icons img {
-    width: 28px;
+    width: 32px;
   }
 }
+
