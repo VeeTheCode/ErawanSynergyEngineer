@@ -413,3 +413,40 @@ footer {
   transform: scale(1.05);
   box-shadow: 0 0 15px rgba(0, 188, 212, 0.5);
 }
+
+
+@media (max-width: 768px) {
+
+  .navbar {
+    flex-direction: column;
+    padding: 10px 10px;
+    text-align: center;
+  }
+
+  .logo img {
+    width: 70px; /* ลดขนาดโลโก้ให้พอดีมือถือ */
+    margin: 0;
+  }
+
+  nav {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;   /* ทำให้ขึ้นหลายบรรทัดได้ */
+    justify-content: center;
+    gap: 10px;
+  }
+
+  nav a {
+    font-size: 0.9em;
+    margin: 0 10px;
+  }
+
+  .social-icons {
+    margin-top: 10px;
+    gap: 15px;
+  }
+
+  .social-icons img {
+    width: 28px;
+  }
+}
